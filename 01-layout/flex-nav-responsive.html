@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+/* Two things to make this better!
+
+1. Animate it.
+2. Use a CSS variable for the header size
+3. Talk about accessibility of pseudoelements
+4. Can we build this using HTML's dialog element?
+*/
+
+		*,
+		::before,
+		::after {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			header {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				background-color: lightblue;
+
+				@media(width >=600px) {
+					label { display: none; }
+				}
+
+				@media(width < 600px) {
+					nav {
+						height: 0;
+						overflow: hidden;
+						position: absolute;
+						top: 40px;
+						right: 10px;
+						outline: 5px solid #f009;
+
+						ul {
+							flex-direction: column;
+
+							li {
+								display: block;
+								background-color: lime;
+							}
+						}
+					}
+
+					&:has(input[type="checkbox"]:checked) nav {
+						background-color: lime;
+						height: auto;
+						overflow: visible;
+					}
+				}
+
+
+
+				nav {
+					flex-grow: 1;
+
+					ul {
+						margin: 0;
+						padding: 0;
+						display: flex;
+						justify-content: flex-end;
+
+						li {
+							border: 1px solid black;
+							padding: 5px;
+							overflow: hidden;
+							display: inline-block;
+							margin: 5px;
+						}
+					}
+				}
+			}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>Flex Nav</h1>
+		<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="/services">Services</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+		<label>
+			<input type="checkbox">
+			<span>Menu</span>
+		</label>
+	</header>
+
+</body>
+
+</html>
