@@ -6,7 +6,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<style>
-/* Two things to make this better!
+		:root {
+			interpolate-size: allow-keywords;
+			--header-size: 48px;
+		}
+
+		html { background-color: black; }
+		* { color: blue; }
+
+		/* Two things to make this better!
 
 1. Animate it.
 2. Use a CSS variable for the header size
@@ -23,40 +31,51 @@
 		}
 
 		body {
+			max-width: 960px;
+			margin: 0 auto;
+			background-color: #eee;
+
 			header {
+				height: var(--header-size);
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
 				background-color: lightblue;
+
+				label {
+					input[type="checkbox"] { display: none; }
+				}
+
 
 				@media(width >=600px) {
 					label { display: none; }
 				}
 
 				@media(width < 600px) {
+					label::before {
+						content: '☰';
+						font-size: 2.0em;
+						font-weight: 900;
+					}
+
 					nav {
+						transition: all 2s;
 						height: 0;
 						overflow: hidden;
 						position: absolute;
-						top: 40px;
+						top: var(--header-size);
 						right: 10px;
-						outline: 5px solid #f009;
+						background-color: royalblue;
+
 
 						ul {
 							flex-direction: column;
 
-							li {
-								display: block;
-								background-color: lime;
-							}
+							li { display: block; }
 						}
 					}
 
-					&:has(input[type="checkbox"]:checked) nav {
-						background-color: lime;
-						height: auto;
-						overflow: visible;
-					}
+					&:has(input[type="checkbox"]:checked) nav { height: auto; }
 				}
 
 
@@ -80,6 +99,9 @@
 					}
 				}
 			}
+
+			p { margin-bottom: 1em; }
+
 	</style>
 </head>
 
@@ -96,9 +118,37 @@
 		</nav>
 		<label>
 			<input type="checkbox">
-			<span>Menu</span>
 		</label>
 	</header>
+	<main>
+		<h1>Welcome to the internet!</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+			magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat.</p>
+
+		<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+			sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+		<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+			aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+		<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+			eos qui ratione voluptatem sequi nesciunt.</p>
+
+		<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
+			numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+
+		<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut quid ex ea
+			commodi consequatur.</p>
+
+		<p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum
+			qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
+
+		<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
+			corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+
+		<p>Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum f
+	</main>
 
 </body>
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		@keyframes shake {
+			0% { transform: translateX(0); }
+			25% { transform: translateX(-15px) rotate(-5deg); }
+			50% { transform: translateX(15px) rotate(5deg); }
+			75% { transform: translateX(-15px) rotate(-5deg); }
+			100% { transform: translateX(0); border-color: red; }
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			width: 200px;
+			margin: 10px auto;
+
+			input {
+				border: 2px solid black;
+				margin-bottom: 0.5rem;
+				&:user-invalid {
+					@media (prefers-reduced-motion: no-preference) {
+						animation: shake 0.5s ;
+						animation-fill-mode: forwards;
+					}
+				}
+				&:valid { background-color: lightgreen; }
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<form>
+		<label for="name">Name</label>
+		<input type="text" required id="name">
+		<label for="email">Email</label>
+		<input type="email" required id="email">
+		<input type="submit">
+	</form>
+
+</body>
+
+</html>

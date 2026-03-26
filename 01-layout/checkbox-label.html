@@ -7,11 +7,12 @@
 	<title>Checkbox Label</title>
 	<style>
 		body {
-			background-color: lime;
+			background-color: gold;
+			transition: all 1s;
 
 			&:has(input[type="checkbox"]:checked) {
-				background-color: cyan;
-
+				background-color: royalblue;
+				font-size: 200px;
 				label::before { content: '😎'; }
 			}
 
