@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="styles.css">
+	<style>
+		body {
+			/* writing-mode: sideways-lr;
+			text-orientation: mixed; */
+			writing-mode: vertical-lr;
+			text-orientation: upright;
+		}
+
+		em {
+			text-style: normal;
+			border-block-start: 5px solid green;
+			border-block-end: 5px solid red;
+			border-inline-start: 5px solid blue;
+			border-inline-end: 5px solid gold;
+
+		}
+	</style>
+</head>
+
+<body>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+	<p>Sed do eiusmod <em>tempor incididunt</em> ut labore et dolore magna aliqua.</p>
+	<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+	<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+	<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+
+	<script src="script.js"></script>
+</body>
+
+</html>

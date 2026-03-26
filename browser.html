@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+</style>
+</head>
+
+<body>
+hello world!
+
+<script>
+document.write(`
+  <h2>Browser Details</h2>
+  <p><strong>User Agent:</strong> ${navigator.userAgent}</p>
+  <p><strong>App Name:</strong> ${navigator.appName}</p>
+  <p><strong>App Version:</strong> ${navigator.appVersion}</p>
+  <p><strong>Platform:</strong> ${navigator.platform}</p>
+  <p><strong>Vendor:</strong> ${navigator.vendor}</p>
+  <p><strong>Language:</strong> ${navigator.language}</p>
+  <p><strong>Cookie Enabled:</strong> ${navigator.cookieEnabled}</p>
+  <p><strong>Hardware Concurrency (CPU cores):</strong> ${navigator.hardwareConcurrency}</p>
+  <p><strong>Device Memory (GB):</strong> ${navigator.deviceMemory ?? 'N/A'}</p>
+`);
+</script>
+</body>
+</html>
