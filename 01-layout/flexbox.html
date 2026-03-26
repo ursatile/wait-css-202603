@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="styles.css">
+	<style>
+		section {
+			display: flex;
+			background-color: orange;
+			justify-content: start;
+
+			p { border: 1px solid black; }
+
+			&[lang|="he"] {
+
+				direction: rtl;
+
+				* { direction: rtl; }
+
+				background-color: lightblue;
+			}
+			/* &:lang(he-IL) {
+				background-color: lightblue;
+			} */
+		}
+	</style>
+</head>
+
+<body>
+	<section>
+		<p>ant</p>
+		<p>babooon</p>
+		<p>crocodile</p>
+		<p>dog</p>
+		<p>elephant</p>
+	</section>
+
+	<section lang="he-IL">
+		<p>נמלה</p>
+		<p>קוף</p>
+		<p>תנין</p>
+		<p>כלב</p>
+		<p>פיל</p>
+	</section>
+	<script src="script.js"></script>
+</body>
+
+</html>
