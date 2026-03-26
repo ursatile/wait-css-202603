@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			background-color: lime;
+
+			@media (max-width: 600px) { background-color: cyan; }
+
+			header {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				background-color: lightblue;
+
+				>* { outline: 5px solid #f009; }
+
+				nav {
+					container-type: inline-size;
+					container-name: header-nav;
+
+					flex-grow: 1;
+
+					ul {
+						margin: 0;
+						padding: 0;
+						display: flex;
+
+						li {
+							flex-basis: 180px;
+							border: 1px solid black;
+							padding: 5px;
+							overflow: hidden;
+							display: inline-block;
+							margin: 5px;
+						}
+					}
+				}
+			}
+		}
+
+		@container header-nav (width < 600px) {
+			ul li:has(a[href="/services"]) { display: none; }
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>Flex Nav</h1>
+		<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="/services">Services</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+</body>
+
+</html>
