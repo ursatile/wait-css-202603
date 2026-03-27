@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		*,
+		::before,
+		::after {
+			box-sizing: border-box;
+		}
+
+		div.speech-bubble {
+			border: 2px solid black;
+			border-radius: 10px;
+			padding: 10px;
+			background-color: lightblue;
+			position: relative;
+			margin-bottom: 0.5rem;
+
+			&:last-child {
+
+				&::before {
+					content: '';
+					position: absolute;
+					display: block;
+					width: 2rem;
+					height: 2rem;
+					top: 40px;
+					/* outline: 5px solid orange; */
+					border-style: solid;
+					border-color: black transparent transparent transparent;
+					border-width: 2rem 1.5rem 0 0.5rem;
+				}
+
+				&::after {
+					content: '';
+					position: absolute;
+					display: block;
+					width: 2rem;
+					height: 2rem;
+					top: 35px;
+					left: 11px;
+					/* outline: 5px solid orange; */
+					border-style: solid;
+					border-color: lightblue transparent transparent transparent;
+					border-width: 2rem 1.5rem 0 0.5rem;
+				}
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<section="person-1">
+		<div class="speech-bubble">Hello World!</div>
+		<div class="speech-bubble">Anybody there?</div>
+		<div class="speech-bubble">I have questions...</div>
+	</section>
+</body>
+
+</html>
