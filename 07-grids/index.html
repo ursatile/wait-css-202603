@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			height: 100vh;
+			display: grid;
+gap: 0.5rem;
+			grid-template-columns: 100px 1fr 200px;
+			grid-template-rows: 4em 1em 1fr 4em;
+			grid-template-areas:
+				"header   header    header"
+				"top-nav  top-nav   adverts"
+				"side-nav main      adverts"
+				"side-nav footer    footer";
+
+			@media(width < 600px) {
+				grid-template-columns: 1fr;
+				grid-template-rows: 
+					4em 1em 0 1fr 2em 4em;
+
+				grid-template-areas:
+					"header"
+					"top-nav"
+					"side-nav"
+					"main"
+					"adverts"
+					"footer";
+			}
+
+			header {
+				grid-area: header;
+				background-color: lightblue;
+			}
+
+			#top-nav {
+				grid-area: top-nav;
+				background-color: lightgreen;
+			}
+
+			#side-nav {
+				grid-area: side-nav;
+				background-color: lightcoral;
+			}
+
+			main {
+				grid-area: main;
+				background-color: lightyellow;
+			}
+
+			aside {
+				grid-area: adverts;
+				background-color: lightpink;
+			}
+
+			footer {
+				grid-area: footer;
+				background-color: lightgray;
+			}
+
+
+			/* >* {
+				outline: 2px solid orange;
+			} */
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		this is the header</header>
+	<nav id="top-nav">
+		<a href="#">home</a>
+		<a href="#">about us</a>
+		<a href="#">contact us</a>
+		<a href="#">fun stuff</a>
+	</nav>
+	<nav id="side-nav">
+		<a href="#">guitars</a>
+		<a href="#">basses</a>
+		<a href="#">drums</a>
+		<a href="#">keyboards</a>
+	</nav>
+
+	<main>
+		<article>
+			the content goes here!
+		</article>
+	</main>
+	<aside>
+		the adverts go here!
+	</aside>
+	<footer>
+		the footer is here
+	</footer>
+
+</body>
+
+</html>
