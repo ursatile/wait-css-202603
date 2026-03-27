@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		@property --brand-color {
+			syntax: '<color>';
+			initial-value: rgb(77 136 132);
+			inherits: true;
+		}
+
+		@property --tetrad-angle {
+			syntax: '<number>';
+			initial-value: 90;
+			inherits: true;
+		}
+
+		header {
+			background-color: oklch(from var(--brand-color) l c calc(h + 180));
+			color: contrast-color(var(--brand-color));
+		}
+
+		button {
+			color: white;
+			background-color: oklch(from var(--brand-color) l c h);
+			border: 2px solid oklch(from var(--brand-color) calc(l - 0.1) c h);
+		}
+
+		div.panel {
+			background-color: oklch(from var(--brand-color) l c calc(h + var(--tetrad-angle)));
+			border: 2px solid oklch(from var(--brand-color) calc(l - 0.1) c calc(h + var(--tetrad-angle)));
+		}
+
+		footer {
+			background-color: oklch(from var(--brand-color) l c calc(h + 180 + var(--tetrad-angle)));
+			border: 2px solid oklch(from var(--brand-color) calc(l - 0.1) c calc(h + 180 + var(--tetrad-angle)));
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		Hello World
+	</header>
+	<button>I'm a button!</button>
+	<div class="panel">I'm a panel!</div>
+	<footer>I'm the footer.</footer>
+
+	<input type="color">
+	<input type="range" min="0" max="180">
+	<script>
+		document.querySelector('input[type="color"]')
+			.addEventListener('input', (e) => {
+				document.documentElement.style.setProperty('--brand-color', e.target.value);
+			});
+		document.querySelector('input[type="range"]')
+			.addEventListener('input', (e) => {
+				document.documentElement.style.setProperty('--tetrad-angle', e.target.value);
+			});
+	</script>
+
+</body>
+
+</html>
